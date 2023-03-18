@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, url_for, redirect, flash
+sfrom flask import Flask, render_template, request, url_for, redirect, flash
 from datetime import datetime
 
 app = Flask(__name__)
@@ -6,12 +6,13 @@ app = Flask(__name__)
 signed_in = False
 
 @app.route("/")
-def home():
+@app.route("/<name>")
+def home(name=None):
   if not signed_in:
     # redirect if not logged
     return redirect(url_for("login"))
   else:
-    pass
+    return render_template("home.html")
 
 @app.route("/login", methods=['GET', 'POST'])
 def login():
@@ -22,6 +23,8 @@ def login():
       return redirect(url_for("home"))
     else:
       flash("Incorrect email address or password!")
+      return render_template("login.html")
+    
 # API #
 
 @app.route("/api/welcome/<name>")

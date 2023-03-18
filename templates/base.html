@@ -1,33 +1,29 @@
 <!-- Straight from JINJA docs -->
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     {% block head %}
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
     <title>{% block title %}{% endblock %} - Bionic Shopping</title>
     {% endblock %}
-</head>
-<body>
+  </head>
+  <body>
     <div id="header">
-      <h1>
-      Bionic Shopping    
-      </h1>
+      <h1>Bionic Shopping</h1>
     </div>
-  {% with messages = get_flashed_messages() %}
-    {% if messages %}
-      <ul class=flashes>
-      {% for message in messages %}
+    {% with messages = get_flashed_messages() %} 
+      {% if messages %}
+      <ul class="flashes">
+        {% for message in messages %}
         <li>{{ message }}</li>
-      {% endfor %}
+        {% endfor %}
       </ul>
-    {% endif %}
-  {% endwith %}
+      {% endif %} 
+    {% endwith %}
     <div id="content">{% block content %}{% endblock %}</div>
     <div id="footer">
-        {% if  %}
-        {% block footer %}
-        &copy; Copyright 2023 by <a href="https://bionicbruins.org/">Bionic Bruins</a>.
-        {% endblock %}
+      {% if %} {% block footer %} &copy; Copyright 2023 by
+      <a href="https://bionicbruins.org/">Bionic Bruins</a>. {% endblock %}
     </div>
-</body>
+  </body>
 </html>
