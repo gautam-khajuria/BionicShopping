@@ -1,15 +1,10 @@
-from flask import Flask
-from flask import render_template
-from flask import request
+from flask import Flask, render_template, request, url_for
 from datetime import datetime
 import model
 
 app = Flask(__name__)
 
-@app.route("/")
-def home():
-  
-  return
+signed_in = False
 
 @app.route("/api/welcome/<name>"):
 def welcome(name):
@@ -17,8 +12,18 @@ def welcome(name):
   
   return f"<p>Hello {name}, it's a new day, <b>{datetime.weekday()}</b>. What will you do today?</p>"
 
+@app.route("/")
+def home():
+  if not signed_in:
+    # redirect if not logged
+    return redirect(url_for("login"))
+  else
+    pass
 
-  
+@app.route("/login", methods=['GET', 'POST'])
+def login():
+  if request.method == 'POST':
+    
   
 if __name__ == "__main__":
   app.run()
