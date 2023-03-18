@@ -10,7 +10,7 @@ signed_in = False
 def welcome(name):
   # API to get the welcome message from name (passed in)
   
-  return f"<p>Hello {name}, it's a new day, <b>{datetime.weekday()}</b>. What will you do today?</p>"
+  return f"<p>Hello {name}, it's <b>{datetime.weekday()}</b>. What will you buy?</p>"
 
 @app.route("/")
 def home():
