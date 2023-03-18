@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, url_for, redirect
+from flask import Flask, render_template, request, url_for, redirect, flash
 from datetime import datetime
 
 app = Flask(__name__)
@@ -18,7 +18,10 @@ def login():
   if request.method == 'GET':
     return render_template("login.html")
   else:
-    return redirect(url_for("/"))
+    if request.form["email-address"] == process.env.EMAIL and request.form["password"] == process.env.PASSWORD:
+      return redirect(url_for("/"))
+    else:
+      flash("Incorrect email address or password!")
 
 # API #
 
