@@ -3,8 +3,8 @@
 <html lang="en">
 <head>
     {% block head %}
-    <link rel="stylesheet" href="style.css" />
-    <title>{% block title %}{% endblock %} - Bionic Productivity</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+    <title>{% block title %}{% endblock %} - Bionic Shopping</title>
     {% endblock %}
 </head>
 <body>
@@ -24,6 +24,7 @@
   {% endwith %}
     <div id="content">{% block content %}{% endblock %}</div>
     <div id="footer">
+        {% if  %}
         {% block footer %}
         &copy; Copyright 2023 by <a href="https://bionicbruins.org/">Bionic Bruins</a>.
         {% endblock %}

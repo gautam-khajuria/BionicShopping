@@ -19,10 +19,9 @@ def login():
     return render_template("login.html")
   else:
     if request.form["email-address"] == process.env.EMAIL and request.form["password"] == process.env.PASSWORD:
-      return redirect(url_for("/"))
+      return redirect(url_for("home"))
     else:
       flash("Incorrect email address or password!")
-
 # API #
 
 @app.route("/api/welcome/<name>")
