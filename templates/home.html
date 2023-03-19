@@ -12,9 +12,13 @@
   Products:
   {% for product in products %}
   <div>
-    <a href="{{product.link}}">
-      <img src=""
+    <a href="/"> {# TODO #} 
+      <img src="{{product.imageLink}}">
+      <h4>
+         {{product.name}}
+      </h4>
     </a>
   </div>
+  {% endfor %}
 </h3>
 {% endblock %}

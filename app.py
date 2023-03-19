@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, url_for, redirect, flash, session
+from flask import Flask, render_template, request, url_for, redirect, flash
 from datetime import datetime
 import os
 from os.path import join, dirname
@@ -16,20 +16,15 @@ signed_in = False
 
 @app.route("/")
 def index():
-  if session['email']:
+  if not signed_in:
     # redirect if not logged
     return redirect(url_for("login"))
   else:
-    return redirect(url_for("home"))
-
-@app.route("/home")
-def home(): 
     products = [
       Product(name="Gear1", imageLink="", description=""), 
       Product(name="Screwdriver", imageLink="", description="")
     ]
     return render_template("home.html", name=os.environ.get("NAME"))
-
 
 @app.route("/login", methods=['GET', 'POST'])
 def login():
@@ -39,7 +34,7 @@ def login():
   elif request.method == 'POST':
     
     if request.form["email-input"] == os.environ.get("EMAIL") and request.form["password-input"] == os.environ.get("PASSWORD"):
-      session['email'] = request.form['email_address']
+      signed_in = True
       return redirect(url_for("index"))
     else:
       flash("Incorrect email address or password!")

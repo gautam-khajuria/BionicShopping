@@ -3,3 +3,4 @@ class Product:
     self.name = name
     self.imageLink = imageLink
     self.description = description
+  
