@@ -23,6 +23,7 @@ def index():
 
 @app.route("/home")
 def home(): 
+  products = [Product(name="Gear1", imageLink="", description="" ), Product(name="Screwdriver", imageLink="", description="")]
     return render_template("home.html", name=os.environ.get("NAME"))
 
 

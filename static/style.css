@@ -1,6 +1,7 @@
 body {
   font-family: monospace;
-  padding: 0px;
+  background-color: cyan;
+  
 }
 
 #header {
