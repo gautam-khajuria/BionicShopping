@@ -6,8 +6,7 @@ app = Flask(__name__)
 signed_in = False
 
 @app.route("/")
-@app.route("/<name>")
-def home(name=None):
+def home():
   if not signed_in:
     # redirect if not logged
     return redirect(url_for("login"))
@@ -18,11 +17,13 @@ def home(name=None):
 def login():
   if request.method == 'GET':
     return render_template("login.html")
-  else:
-    if request.form["email-address"] == process.env.EMAIL and request.form["password"] == process.env.PASSWORD:
+  else if request.method == 'POST':
+    if request.form["email-input"] == process.env.EMAIL and request.form["password-input"] == process.env.PASSWORD:
+      signed_in = True
       return redirect(url_for("home"))
     else:
       flash("Incorrect email address or password!")
+      return render_template("login.html")
     
 # API #
 

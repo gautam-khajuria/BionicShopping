@@ -1,9 +1,14 @@
 {% extends "base.html" %}
-{% block title %}Login{% endblock %}
+{% block title %}Home{% endblock %}
 {% block content %}
   <h2>
     {% if name != None %}
-    Hello {{ name }} Welcome to Bionic Shopping!
-    {}
+      Hello {{ name }}, Welcome to Bionic Shopping!
+    {% else %} 
+      Hello user, welcome to Bionic Shopping!
+    {% endif%}
 </h2>
+<h3>
+  Products:
+</h3>
 {% endblock %}
