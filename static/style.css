@@ -1,3 +1,5 @@
+/* https://coolors.co/ceec97-f4b393-fc60a8-7a28cb-494368 */
+
 HTML, body {
   font-family: monospace;
   background-color: white;
@@ -23,9 +25,10 @@ HTML, body {
 
 #login .input-field {
   display: inline-block;
-  background-color: gray;
-  border-radius: 2px;
-  color: white;
+  background-color: #CEEC97;
+  border-radius: 4px;
+  padding: 4px;
+  color: black;
 }
 
 #footer {
@@ -37,7 +40,7 @@ HTML, body {
 }
 
 button {
-  background-color: black;
+  background-color: #494368;
   color: white;
   border-radius: 4px;
   border: 0;
