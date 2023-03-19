@@ -1,7 +1,7 @@
 /* https://coolors.co/ceec97-f4b393-fc60a8-7a28cb-494368 */
 
 HTML, body {
-  font-family: monospace;
+  font-family: 'Segoe UI', sans-serif;
   background-color: white;
   margin: 0;
   min-height: 100vh;
@@ -23,7 +23,22 @@ HTML, body {
   padding: 8px;
 }
 
+#login {
+  max-width: 25vw;
+  border-radius: 8px;
+  border: 1px lightgray solid;
+  padding: 8px;
+  
+  margin: 0 auto;
+  
+  
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
 #login .input-field {
+  text-align: center;
   display: inline-block;
   background-color: #CEEC97;
   border-radius: 4px;
