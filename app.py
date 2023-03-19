@@ -12,11 +12,13 @@ app = Flask(__name__)
 app.secret_key = b'3_)(*@udjsfbbsHSKJHDA)'
 
 # SIGNED IN BOOLEAN
-signed_in = False
+signed_in = True
 
 @app.route("/")
 def index():
-  if not signed_in:
+  global signed_in
+  
+  if signed_in == False:
     # redirect if not logged
     return redirect(url_for("login"))
   else:
@@ -28,6 +30,11 @@ def index():
 
 @app.route("/login", methods=['GET', 'POST'])
 def login():
+  global signed_in
+
+  if signed_in == True:
+    return redirect(url_for("index"))
+  
   if request.method == 'GET':
     return render_template("login.html")
   
