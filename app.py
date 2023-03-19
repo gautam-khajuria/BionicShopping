@@ -23,7 +23,6 @@ def login():
       return redirect(url_for("home"))
     else:
       flash("Incorrect email address or password!")
-      return render_template("login.html")
     
 # API #
 
