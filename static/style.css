@@ -8,3 +8,8 @@ body {
   color: white;
 }
 
+.flash {
+  list-style-type: none;
+  background-color: red;
+  border-radius: 16px;
+}

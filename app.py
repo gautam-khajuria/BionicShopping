@@ -10,7 +10,7 @@ load_dotenv(dotenv_path)
 app = Flask(__name__)
 app.secret_key = b'3_)(*@udjsfbbsHSKJHDA)'
 
-# 
+# SIGNED IN BOOLEAN
 signed_in = False
 
 @app.route("/")
@@ -23,15 +23,19 @@ def index():
 
 @app.route("/home")
 def home(): 
-    return render_template("home.html")
+    return render_template("home.html", name=os.environ.get("NAME"))
+
 
 @app.route("/login", methods=['GET', 'POST'])
 def login():
   if request.method == 'GET':
     return render_template("login.html")
+  
   elif request.method == 'POST':
+    
     if request.form["email-input"] == os.environ.get("EMAIL") and request.form["password-input"] == os.environ.get("PASSWORD"):
       signed_in = True
+      flash("Logging in...")
       return redirect(url_for("index"))
     else:
       flash("Incorrect email address or password!")
