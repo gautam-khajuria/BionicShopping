@@ -12,7 +12,7 @@ app = Flask(__name__)
 app.secret_key = b'3_)(*@udjsfbbsHSKJHDA)'
 
 # SIGNED IN BOOLEAN
-signed_in = True
+signed_in = False
 
 @app.route("/")
 def index():
