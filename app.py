@@ -7,9 +7,10 @@ from dotenv import load_dotenv
 dotenv_path = join(dirname(__file__), '.env')
 load_dotenv(dotenv_path)
 
-
 app = Flask(__name__)
+app.secret_key = b'3_)(*@udjsfbbsHSKJHDA)'
 
+# 
 signed_in = False
 
 @app.route("/")
@@ -19,10 +20,10 @@ def index():
     return redirect(url_for("login"))
   else:
     return render_template("home.html")
-  
+
 @app.route("/home")
 def home(): 
-    return "hi"
+    return render_template("home.html")
 
 @app.route("/login", methods=['GET', 'POST'])
 def login():
@@ -33,7 +34,7 @@ def login():
       signed_in = True
       return redirect(url_for("index"))
     else:
-      #flash("Incorrect email address or password!")
+      flash("Incorrect email address or password!")
       return redirect(url_for("login"))
     
 # API #
