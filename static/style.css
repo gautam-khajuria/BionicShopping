@@ -31,18 +31,15 @@ HTML, body {
   padding: 8px;
   
   margin: 0 auto;
-  
+  text-align: center;
   
   display: flex;
   flex-direction: column;
-  align-items: stretch;
-  justify-content: center;
   gap: 4px;
 }
 
 #login .input-field {
   text-align: center;
-  display: inline-block;
   background-color: #CEEC97;
   border-radius: 4px;
   padding: 4px;
@@ -55,10 +52,9 @@ HTML, body {
   font-weight: bold;
 }
 
-
-
-
-
+#login .input-field input {
+  width: 97%;
+}
 
 #footer {
   text-align: center;
