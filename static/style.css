@@ -25,6 +25,7 @@ HTML, body {
 
 #login {
   max-width: 25vw;
+  min-height: 25vh;
   border-radius: 8px;
   border: 1px lightgray solid;
   padding: 8px;
@@ -34,6 +35,8 @@ HTML, body {
   
   display: flex;
   flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
   gap: 4px;
 }
 
@@ -45,6 +48,17 @@ HTML, body {
   padding: 4px;
   color: black;
 }
+
+#login .input-field label {
+  text-align: left; 
+  display: block;
+  font-weight: bold;
+}
+
+
+
+
+
 
 #footer {
   text-align: center;
@@ -61,4 +75,5 @@ button {
   border: 0;
   padding: 8px;  
   font-family: inherit;
+  font-weight: bold; 
 }
