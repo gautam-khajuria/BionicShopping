@@ -1,16 +1,21 @@
-body {
+HTML, body {
   font-family: monospace;
   background-color: cyan;
-  padding: 0;
+  margin: 0;
 }
 
 #header {
   background-color: blue;
   color: white;
+  padding: 2px;
 }
 
 .flash {
   list-style-type: none;
   background-color: red;
   border-radius: 16px;
+}
+
+#content {
+  padding: 2px;
 }
