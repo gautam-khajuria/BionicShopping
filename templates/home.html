@@ -10,5 +10,11 @@
 </h2>
 <h3>
   Products:
+  {% for product in products %}
+  <div>
+    <a href="{{product.link}}">
+      <img src=""
+    </a>
+  </div>
 </h3>
 {% endblock %}

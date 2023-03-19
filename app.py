@@ -1,8 +1,9 @@
-from flask import Flask, render_template, request, url_for, redirect, flash
+from flask import Flask, render_template, request, url_for, redirect, flash, session
 from datetime import datetime
 import os
 from os.path import join, dirname
 from dotenv import load_dotenv
+from Product import Product
 
 dotenv_path = join(dirname(__file__), '.env')
 load_dotenv(dotenv_path)
@@ -15,15 +16,18 @@ signed_in = False
 
 @app.route("/")
 def index():
-  if not signed_in:
+  if session['email']:
     # redirect if not logged
     return redirect(url_for("login"))
   else:
-    return render_template("home.html")
+    return redirect(url_for("home"))
 
 @app.route("/home")
 def home(): 
-  products = [Product(name="Gear1", imageLink="", description="" ), Product(name="Screwdriver", imageLink="", description="")]
+    products = [
+      Product(name="Gear1", imageLink="", description=""), 
+      Product(name="Screwdriver", imageLink="", description="")
+    ]
     return render_template("home.html", name=os.environ.get("NAME"))
 
 
@@ -35,8 +39,7 @@ def login():
   elif request.method == 'POST':
     
     if request.form["email-input"] == os.environ.get("EMAIL") and request.form["password-input"] == os.environ.get("PASSWORD"):
-      signed_in = True
-      flash("Logging in...")
+      session['email'] = request.form['email_address']
       return redirect(url_for("index"))
     else:
       flash("Incorrect email address or password!")

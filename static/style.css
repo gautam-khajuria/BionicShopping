@@ -1,7 +1,7 @@
 body {
   font-family: monospace;
   background-color: cyan;
-  
+  padding: 0;
 }
 
 #header {
