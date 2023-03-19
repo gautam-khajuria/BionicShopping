@@ -10,15 +10,18 @@
 </h2>
 <h3>
   Products:
+</h3>
+<div>
   {% for product in products %}
   <div>
-    <a href="/"> {# TODO #} 
+    <a href="/"> {# TODO, make it url_for(product, product=product) #} 
       <img src="{{product.imageLink}}">
       <h4>
          {{product.name}}
       </h4>
     </a>
-  </div>
-  {% endfor %}
-</h3>
+  </div> 
+  {% endfor %}  
+</div>
+
 {% endblock %}
