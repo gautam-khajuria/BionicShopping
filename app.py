@@ -52,7 +52,7 @@ def login():
 @app.route("/api/welcome/<name>")
 def welcome(name):
   # API to get the welcome message from name (passed in)
-  return f"<p>Hello {name}, it's <b>{datetime.weekday()}</b>. What will you buy?</p>"
+  return f"<p>Hello {name}, it's <b>{datetime.weekday()}</b>. Welcome to our store!</p>"
   
   
 if __name__ == "__main__":
