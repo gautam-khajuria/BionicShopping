@@ -23,10 +23,10 @@ def index():
     return redirect(url_for("login"))
   else:
     products = [
-      Product(name="Gear1", imageLink="", description=""), 
-      Product(name="Screwdriver", imageLink="", description="")
+      Product(name="Gear1", imageLink="", description="", 1), 
+      Product(name="Screwdriver", imageLink="", description="", 2)
     ]
-    return render_template("home.html", name=os.environ.get("NAME"))
+    return render_template("home.html", name=os.environ.get("NAME"), products=products)
 
 @app.route("/login", methods=['GET', 'POST'])
 def login():
@@ -47,6 +47,12 @@ def login():
       flash("Incorrect email address or password!")
       return redirect(url_for("login"))
     
+@app.route("/product/<int:id>")
+def product_page(id):
+  return render_template("product-page.html", products=products)
+  
+  pass
+    
 # API #
 
 @app.route("/api/welcome/<name>")
@@ -54,6 +60,6 @@ def welcome(name):
   # API to get the welcome message from name (passed in)
   return f"<p>Hello {name}, it's <b>{datetime.weekday()}</b>. Welcome to our store!</p>"
   
-  
+ 
 if __name__ == "__main__":
   app.run(debug=True)

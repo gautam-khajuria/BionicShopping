@@ -14,6 +14,11 @@
     <div id="header">
       <h1>Bionic Shopping</h1>
       
+      {% if products %}
+      {% for product in products %}
+      <a href="{{product}}"
+      {% endfor %}
+      {% endif %}
     </div>
     {% with messages = get_flashed_messages() %} {% if messages %}
     {% for message in messages %}
