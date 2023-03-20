@@ -11,6 +11,30 @@ HTML, body {
   background-color: #FC60A8;
   color: white;
   padding: 8px;
+  display: flex;
+  flex-direction: row;
+}
+
+#header .page {
+  color: white;
+  text-decoration: none;
+  margin: 4px;
+}
+
+#header .page:link {
+  text-decoration: none;
+}
+
+#header .page:visited {
+  text-decoration: none;
+}
+
+#header .page:hover {
+  text-decoration: none;
+}
+
+#header .page:active {
+  text-decoration: none;
 }
 
 .flash {

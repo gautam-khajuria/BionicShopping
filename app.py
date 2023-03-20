@@ -13,20 +13,20 @@ app.secret_key = b'3_)(*@udjsfbbsHSKJHDA)'
 
 # SIGNED IN BOOLEAN
 signed_in = False
+products = {1: Product(name="Gear", imageLink="", description="", id=1),
+           2: Product(name="Screwdriver", imageLink="", description="", id=2)}
+
+
 
 @app.route("/")
 def index():
-  global signed_in
+  global signed_in, products
   
   if signed_in == False:
     # redirect if not logged
     return redirect(url_for("login"))
   else:
-    products = [
-      Product(name="Gear1", imageLink="", description="", 1), 
-      Product(name="Screwdriver", imageLink="", description="", 2)
-    ]
-    return render_template("home.html", name=os.environ.get("NAME"), products=products)
+    return render_template("home.html", name=os.environ.get("NAME"), products=products.values())
 
 @app.route("/login", methods=['GET', 'POST'])
 def login():
@@ -49,9 +49,9 @@ def login():
     
 @app.route("/product/<int:id>")
 def product_page(id):
-  return render_template("product-page.html", products=products)
+  global products
   
-  pass
+  return render_template("product-page.html", products=products)
     
 # API #
 

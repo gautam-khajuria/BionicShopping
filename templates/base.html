@@ -13,10 +13,9 @@
   <body>
     <div id="header">
       <h1>Bionic Shopping</h1>
-      
       {% if products %}
       {% for product in products %}
-      <a href="{{product}}"
+      <a href="/product/{{ product.id }}" class="page">{{ product.name }}</a>
       {% endfor %}
       {% endif %}
     </div>
