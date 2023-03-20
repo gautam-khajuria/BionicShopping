@@ -11,29 +11,36 @@ HTML, body {
   background-color: #FC60A8;
   color: white;
   padding: 8px;
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
 }
 
-#header .page {
+#header #page-holders {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#header #page-holders .page {
   color: white;
   text-decoration: none;
   margin: 4px;
 }
 
-#header .page:link {
+#header #page-holders .page:link {
   text-decoration: none;
 }
 
-#header .page:visited {
+#header #page-holders .page:visited {
   text-decoration: none;
 }
 
-#header .page:hover {
+#header #page-holders .page:hover {
   text-decoration: none;
 }
 
-#header .page:active {
+#header #page-holders .page:active {
   text-decoration: none;
 }
 
@@ -99,4 +106,9 @@ button {
   font-family: inherit;
   font-weight: bold; 
   cursor: pointer;
+}
+
+.product-showcase {
+  padding: 5%; 
+  
 }

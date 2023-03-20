@@ -47,10 +47,9 @@ def login():
       flash("Incorrect email address or password!")
       return redirect(url_for("login"))
     
-@app.route("/product/<int:id>")
+@app.route("/products/<int:id>")
 def product_page(id):
   global products
-  
   return render_template("product-page.html", products=products)
     
 # API #

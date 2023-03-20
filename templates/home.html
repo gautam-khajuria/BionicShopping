@@ -14,7 +14,7 @@
 <div>
   {% for product in products %}
   <div>
-    <a href="/"> {# TODO, make it url_for(product, product=product) #} 
+    <a href="/products/ {{product.id}}"> {# TODO, make it url_for(product, product=product) #} 
       <img src="{{product.imageLink}}">
       <h4>
          {{product.name}}
