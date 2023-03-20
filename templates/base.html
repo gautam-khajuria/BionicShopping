@@ -13,20 +13,19 @@
   <body>
     <div id="header">
       <h1>Bionic Shopping</h1>
-      
+
       <div id="page-holders">
-        {% if products %}
-        {% for product in products %}
-        <a href="/product/{{ product.id }}" class="page">{{ product.name }}</a>
-        {% endfor %}
-        {% endif %}
+        {% if products %} {% for product in products %}
+        <a href="/product/{{ product.id }}" class="page"
+          ><b>{{ product.name }}</b></a
+        >
+        {% endfor %} {% endif %}
       </div>
     </div>
-    {% with messages = get_flashed_messages() %} {% if messages %}
-    {% for message in messages %}
-      <div class="flash">{{ message }}</div>
-    {% endfor %}
-    {% endif %} {% endwith %}
+    {% with messages = get_flashed_messages() %} {% if messages %} {% for
+    message in messages %}
+    <div class="flash">{{ message }}</div>
+    {% endfor %} {% endif %} {% endwith %}
     <div id="content">{% block content %}{% endblock %}</div>
     <div id="footer">
       {% block footer %} &copy; Copyright 2023 by
