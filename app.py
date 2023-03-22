@@ -13,7 +13,7 @@ app.secret_key = b'3_)(*@udjsfbbsHSKJHDA)'
 
 # SIGNED IN BOOLEAN
 signed_in = False
-products = {1: Product(name="Gear", imageLink="", description="", id=1),
+products = {1: Product(name="Gear", imageLink="", description="green. crunch. delicious", id=1),
            2: Product(name="Screwdriver", imageLink="", description="", id=2)}
 
 
@@ -50,7 +50,7 @@ def login():
 @app.route("/products/<int:id>")
 def product_page(id):
   global products
-  return render_template("product-page.html", products=products)
+  return render_template("product-page.html", product=products[id])
     
 # API #
 
