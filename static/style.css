@@ -23,7 +23,7 @@ HTML, body {
   justify-content: space-evenly;
 }
 
-#header #page-holders .page {
+#header #page-holders .page, h1 a {
   color: white;
   text-decoration: none;
   margin: 4px;

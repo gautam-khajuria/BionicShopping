@@ -12,11 +12,15 @@
   </head>
   <body>
     <div id="header">
-      <h1>Bionic Shopping</h1>
+      <h1>
+        <a href="/" class="">
+          Bionic Shopping
+        </a>
+      </h1>
 
       <div id="page-holders">
         {% if products %} {% for product in products %}
-        <a href="/product/{{ product.id }}" class="page"
+        <a href="/products/{{ product.id }}" class="page"
           ><b>{{ product.name }}</b></a
         >
         {% endfor %} {% endif %}
