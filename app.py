@@ -13,7 +13,7 @@ app.secret_key = b'3_)(*@udjsfbbsHSKJHDA)'
 
 # SIGNED IN BOOLEAN
 signed_in = False
-products = {1: Product(name="Gear", imageLink="", description="green. crunch. delicious", id=1),
+products = {1: Product(name="Gear", imageLink="https://cdn.glitch.global/d41ba89f-852f-4513-8c71-8d07b82ca711/gear_1.jpeg?v=1679490572576", description="green. crunch. delicious", id=1),
            2: Product(name="Screwdriver", imageLink="", description="", id=2)}
 
 
@@ -61,13 +61,13 @@ def welcome(name):
   
 @app.route("/api/error/<name>")
 def error_name(name):
-  # API to get the welcome message from name (passed in)
+  # API to send an error message from name (passed in)
   return f"<p>Sorry {name.toUpperCase()}, looks like that caused an error! Try again later</p>"
 
 # uses the user's name but also provides them with a redirect link to reacces website 
 @app.route("/api/error/<name>/<redir_link>/")
 def error_name_redir(name, redir_link):
-  # API to get the welcome message from name (passed in)
-  return f"<p>Sorry {name}, looks like that caused an error!</p> <a href= {redir_link + '.com'}> Take me back :( </a>"
+  # API to send an error message from name (passed in) + url (passed in)
+  return f"<p>Sorry {name}, looks like that caused an error!</p> <a href= {'https://' + redir_link}> Take me back :( </a>"
 if __name__ == "__main__":
   app.run(debug=True)
