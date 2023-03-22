@@ -13,8 +13,8 @@
 </h3>
 <div>
   {% for product in products %}
-  <div>
-    <a href="/products/ {{product.id}}"> {# TODO, make it url_for(product, product=product) #} 
+  <div class="products-display">
+    <a href="/products/{{ product.id }}"> {# TODO, make it url_for(product, product=product) bro ok #} 
       <img src="{{product.imageLink}}">
       <h4>
          {{product.name}}
