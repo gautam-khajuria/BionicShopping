@@ -27,7 +27,7 @@ products = {1: Product(name="Gear",
 
 
 def format_url(url):
-  return url.replace("/", "%2F")
+  return url.replace("/", "$")
 
 
 
@@ -67,7 +67,7 @@ def product_page(id):
   if (id in products) :
     return render_template("product-page.html", product=products[id])
   else :
-    index_url = "http://proximal-gorgeous-cheek.glitch.me/"
+    index_url = "https://proximal-gorgeous-cheek.glitch.me/"
     return redirect(f"/api/error/{os.environ.get('NAME')}/{format_url(index_url)}")    
 # API #
 
@@ -84,9 +84,9 @@ def error_name(name):
 # uses the user's name but also provides them with a redirect link to reacces website 
 @app.route("/api/error/<name>/<redir_link>/")
 def error_name_redir(name, redir_link):
-  
   # API to send an error message from name (passed in) + url (passed in)
-  return redir_link
+  return f"<p>Sorry {name}, looks like that caused an error!</p> <a href= {redir_link.replace('$', '/')}> Take me back :( </a>"
+   
 
 
 if __name__ == "__main__":
