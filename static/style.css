@@ -112,5 +112,9 @@ button {
 .product-showcase {
   padding: 5%; 
   
-  
+}
+
+.product-showcase .product-image {
+  max-width : 30%
+    
 }

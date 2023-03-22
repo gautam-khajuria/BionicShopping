@@ -50,7 +50,10 @@ def login():
 @app.route("/products/<int:id>")
 def product_page(id):
   global products
-  return render_template("product-page.html", product=products[id])
+  if (id in products) :
+    return render_template("product-page.html", product=products[id])
+  else :
+    return url_for('index')
     
 # API #
 
