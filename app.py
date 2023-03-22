@@ -13,8 +13,17 @@ app.secret_key = b'3_)(*@udjsfbbsHSKJHDA)'
 
 # SIGNED IN BOOLEAN
 signed_in = False
-products = {1: Product(name="Gear", imageLink="https://cdn.glitch.global/d41ba89f-852f-4513-8c71-8d07b82ca711/gear_1.jpeg?v=1679490572576", description="green. crunch. delicious", id=1),
-           2: Product(name="Screwdriver", imageLink="", description="", id=2)}
+products = {1: Product(name="Gear", 
+                       imageLink="https://cdn.glitch.global/d41ba89f-852f-4513-8c71-8d07b82ca711/gear_1.jpeg?v=1679490572576", 
+                       description="green. crunch. delicious", 
+                       id=1
+                      ),
+           2: Product(name="Screwdriver", 
+                      imageLink="https://cdn.glitch.global/d41ba89f-852f-4513-8c71-8d07b82ca711/screwdriver_3pack_1.jpg?v=1679492884372", 
+                      description="simple.basic.efficent. A #necessity", 
+                      id=2
+                     )
+           }
 
 
 
