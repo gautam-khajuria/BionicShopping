@@ -53,8 +53,8 @@ def product_page(id):
   if (id in products) :
     return render_template("product-page.html", product=products[id])
   else :
-    return url_for('index')
-    
+    index_url = "http://proximal-gorgeous-cheek.glitch.me/"
+    return redirect(f"/api/error/{os.environ.get('NAME')}/\'{index_url}\'")    
 # API #
 
 @app.route("/api/welcome/<name>")
@@ -71,6 +71,6 @@ def error_name(name):
 @app.route("/api/error/<name>/<redir_link>/")
 def error_name_redir(name, redir_link):
   # API to send an error message from name (passed in) + url (passed in)
-  return f"<p>Sorry {name}, looks like that caused an error!</p> <a href= {'https://' + redir_link}> Take me back :( </a>"
+  return redir_link
 if __name__ == "__main__":
   app.run(debug=True)
