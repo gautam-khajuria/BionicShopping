@@ -58,6 +58,16 @@ def product_page(id):
 def welcome(name):
   # API to get the welcome message from name (passed in)
   return f"<p>Hello {name}, it's <b>{datetime(2022, 3, 22).weekday()}</b>. Welcome to our store!</p>"
-   
+  
+@app.route("/api/error/<name>")
+def error_name(name):
+  # API to get the welcome message from name (passed in)
+  return f"<p>Sorry {name.toUpperCase()}, looks like that caused an error! Try again later</p>"
+
+# uses the user's name but also provides them with a redirect link to reacces website 
+@app.route("/api/error/<name>/<redir_link>/")
+def error_name_redir(name, redir_link):
+  # API to get the welcome message from name (passed in)
+  return f"<p>Sorry {name}, looks like that caused an error!</p> <a href= {redir_link + '.com'}> Take me back :( </a>"
 if __name__ == "__main__":
   app.run(debug=True)
