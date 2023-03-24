@@ -16,12 +16,12 @@ app.secret_key = b'3_)(*@udjsfbbsHSKJHDA)'
 signed_in = False
 products = {1: Product(name="Gear", 
                        imageLink="https://cdn.glitch.global/d41ba89f-852f-4513-8c71-8d07b82ca711/gear_1.jpeg?v=1679490572576", 
-                       description="green. crunch. delicious", 
+                       description="green. crunch. delicious. Use this for all of your chained needs!", 
                        id=1
                       ),
            2: Product(name="Screwdriver", 
                       imageLink="https://cdn.glitch.global/d41ba89f-852f-4513-8c71-8d07b82ca711/screwdriver_3pack_1.jpg?v=1679492884372", 
-                      description="simple.basic.efficent. A #necessity", 
+                      description="simple. basic. efficent. A #necessity for the modern toolist. Got a problem? SCREWDRIVER!", 
                       id=2
                      )
            }

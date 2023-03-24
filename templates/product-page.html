@@ -2,15 +2,14 @@
 {% block title %}{{ product.name }}{% endblock %} 
 {% block content %}
 
-<h2>
+<h1>
   {{ product.name }}
-</h2>
+</h1>
 <div id="product-showcase">
-  <img src="{{product.imageLink}}" id= "product-image">
-  <p>
+  <img src="{{ product.imageLink }}" id="product-image">
+  <h4>
     {{ product.description }}
-
-  </p>
+  </h4>
 </div>
 
 

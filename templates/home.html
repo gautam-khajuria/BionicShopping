@@ -7,7 +7,6 @@
   <div class="products-display">
     {% for product in products %}
     <a href="{{ url_for('product_page', id=product.id )}}" class="product-on-display">
-      {# TODO, make it url_for(product, product=product) bro ok #}
       <h1>{{product.name}}</h1>
       <img src="{{product.imageLink}}" />
     </a>
