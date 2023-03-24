@@ -83,7 +83,7 @@ def welcome(name):
 @app.route("/api/welcome/")
 def welcome(name):
   # API to get the welcome message from name (passed in)
-  return f"Hello! it's {calendar.day_name[date.today().weekday()]}."
+  return f"Hello, it's {calendar.day_name[date.today().weekday()]}. Start shopping for..."
   
 @app.route("/api/error/<name>")
 def error_name(name):
