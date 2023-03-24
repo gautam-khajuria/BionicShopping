@@ -14,11 +14,11 @@
 <div>
   {% for product in products %}
   <div class="products-display">
-    <a href="/products/{{ product.id }}"> {# TODO, make it url_for(product, product=product) bro ok #} 
-      <img src="{{product.imageLink}}">
+    <a href="/products/{{ product.id }}" class="product-on-display"> {# TODO, make it url_for(product, product=product) bro ok #} 
       <h4>
          {{product.name}}
       </h4>
+      <img src="{{product.imageLink}}">
     </a>
   </div> 
   {% endfor %}  

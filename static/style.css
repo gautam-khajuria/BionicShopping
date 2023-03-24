@@ -23,6 +23,18 @@ HTML, body {
   justify-content: space-evenly;
 }
 
+.product-on-display {
+  background-color: #F4B393;
+  border-radius: 8px;
+  padding: 4px;
+  width: 1fr;
+}
+
+.product-on-display img {
+  width: 150px;
+  height: 150px;
+}
+
 #header #page-holders .page, h1 a {
   color: white;
   text-decoration: none;
@@ -116,8 +128,4 @@ button {
 
 .product-showcase .product-image {
   max-width: 30%;
-}
-
-.products-display {
-  
 }

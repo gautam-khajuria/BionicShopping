@@ -29,8 +29,6 @@ products = {1: Product(name="Gear",
 def format_url(url):
   return url.replace("/", "$")
 
-
-
 @app.route("/")
 def index():
   global signed_in, products
@@ -63,9 +61,13 @@ def login():
     
 @app.route("/products/<int:id>")
 def product_page(id):
-  global products
-  if (id in products) :
-    return render_template("product-page.html", product=products[id])
+  global products, signed_in
+  
+  if not signed_in:
+    return redirect(url_for("login"))
+  
+  if id in products:
+    return render_template("product-page.html", product=products[id], products=products.values())
   else :
     index_url = "https://proximal-gorgeous-cheek.glitch.me/"
     return redirect(f"/api/error/{os.environ.get('NAME')}/{format_url(index_url)}")    
