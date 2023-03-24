@@ -45,7 +45,6 @@ def index():
 @app.route("/login", methods=['GET', 'POST'])
 def login():
   global signed_in
-
   if signed_in == True:
     return redirect(url_for("index"))
   
