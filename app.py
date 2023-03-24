@@ -33,13 +33,14 @@ def format_url(url):
 @app.route("/")
 def index():
   global signed_in, products
-  
+
   if signed_in == False:
     # redirect if not logged
     return redirect(url_for("login"))
   else:
-    name = os.environ.get("NAME")
-    return render_template("home.html", name=name, products=products.values(), message=requests.get(f"https://proximal-gorgeous-cheek.glitch.me/api/welcome/{name}").text)
+    name = os.environ.get("NAME") # access env variable 
+    return render_template("home.html", name=name, products=products.values(), 
+                           message=requests.get(f"https://proximal-gorgeous-cheek.glitch.me/api/welcome/{name}").text)
 
 @app.route("/login", methods=['GET', 'POST'])
 def login():
@@ -52,7 +53,6 @@ def login():
     return render_template("login.html")
   
   elif request.method == 'POST':
-    
     if request.form["email-input"] == os.environ.get("EMAIL") and request.form["password-input"] == os.environ.get("PASSWORD"):
       signed_in = True
       return redirect(url_for("index"))
