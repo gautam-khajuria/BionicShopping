@@ -1,11 +1,12 @@
 {% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
 %}
-
-<h3>Products:</h3>
+<h2>
+  {{ message }}
+</h2>
 <div>
   <div class="products-display">
     {% for product in products %}
-    <a href="/products/{{ product.id }}" class="product-on-display">
+    <a href="{{ url_for('product_page', id=product.id )}}" class="product-on-display">
       {# TODO, make it url_for(product, product=product) bro ok #}
       <h1>{{product.name}}</h1>
       <img src="{{product.imageLink}}" />

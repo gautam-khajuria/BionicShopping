@@ -1,9 +1,10 @@
 from flask import Flask, render_template, request, url_for, redirect, flash
-from datetime import datetime
-import os
+from datetime import date
+import os, requests
 from os.path import join, dirname
 from dotenv import load_dotenv
 from Product import Product
+import calendar
 
 dotenv_path = join(dirname(__file__), '.env')
 load_dotenv(dotenv_path)
@@ -37,7 +38,8 @@ def index():
     # redirect if not logged
     return redirect(url_for("login"))
   else:
-    return render_template("home.html", name=os.environ.get("NAME"), products=products.values())
+    name = os.environ.get("NAME")
+    return render_template("home.html", name=name, products=products.values(), message=requests.get(f"https://proximal-gorgeous-cheek.glitch.me/api/welcome/{name}").text)
 
 @app.route("/login", methods=['GET', 'POST'])
 def login():
@@ -76,7 +78,7 @@ def product_page(id):
 @app.route("/api/welcome/<name>")
 def welcome(name):
   # API to get the welcome message from name (passed in)
-  return f"<p>Hello {name}, it's <b>{datetime(2022, 3, 22).weekday()}</b>. Start shopping for...</p>"
+  return f"Hello {name}, it's {calendar.day_name[date.today().weekday()]}. Start shopping for..."
   
 @app.route("/api/error/<name>")
 def error_name(name):
