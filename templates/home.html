@@ -1,11 +1,17 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
+%}
 <h2>
- Welcome to Bionic Bruins SHhopping
+  {{ message }}
 </h2>
 <div>
   <div class="products-display">
-    <p>
-       hfsekrhsej
-    </p>
+    {% for product in products %}
+    <a href="{{ url_for('product_page', id=product.id )}}" class="product-on-display">
+      <h1>{{product.name}}</h1>
+      <img src="{{product.imageLink}}" />
+    </a>
+    {% endfor %}
   </div>
 </div>
 
+{% endblock %}

@@ -69,9 +69,11 @@ def product_page(id):
   
   if id in products:
     return render_template("product-page.html", product=products[id], products=products.values())
+  
   else :
     index_url = "https://proximal-gorgeous-cheek.glitch.me/"
-    return redirect(f"/api/error/{os.environ.get('NAME')}/{format_url(index_url)}")    
+    return redirect(f"/api/error/{os.environ.get('NAME')}/{format_url(index_url)}") 
+  
 # API #
 
 @app.route("/api/welcome/<name>")
