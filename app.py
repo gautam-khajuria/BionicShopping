@@ -79,6 +79,11 @@ def product_page(id):
 def welcome(name):
   # API to get the welcome message from name (passed in)
   return f"Hello {name}, it's {calendar.day_name[date.today().weekday()]}. Start shopping for..."
+
+@app.route("/api/welcome/")
+def welcome(name):
+  # API to get the welcome message from name (passed in)
+  return f"Hello! it's {calendar.day_name[date.today().weekday()]}."
   
 @app.route("/api/error/<name>")
 def error_name(name):
