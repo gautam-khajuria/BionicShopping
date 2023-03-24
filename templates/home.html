@@ -1,27 +1,17 @@
-{% extends "base.html" %}
-{% block title %}Home{% endblock %}
-{% block content %}
-  <h2>
-    {% if name != None %}
-      Hello {{ name }}, Welcome to Bionic Shopping!
-    {% else %} 
-      Hello user, welcome to Bionic Shopping!
-    {% endif%}
-</h2>
-<h3>
-  Products:
-</h3>
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
+%}
+
+<h3>Products:</h3>
 <div>
-  {% for product in products %}
   <div class="products-display">
-    <a href="/products/{{ product.id }}" class="product-on-display"> {# TODO, make it url_for(product, product=product) bro ok #} 
-      <h4>
-         {{product.name}}
-      </h4>
-      <img src="{{product.imageLink}}">
+    {% for product in products %}
+    <a href="/products/{{ product.id }}" class="product-on-display">
+      {# TODO, make it url_for(product, product=product) bro ok #}
+      <h1>{{product.name}}</h1>
+      <img src="{{product.imageLink}}" />
     </a>
-  </div> 
-  {% endfor %}  
+    {% endfor %}
+  </div>
 </div>
 
 {% endblock %}
