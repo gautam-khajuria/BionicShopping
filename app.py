@@ -52,7 +52,8 @@ def login():
     return render_template("login.html")
   
   elif request.method == 'POST':
-    if request.form["email-input"] == os.environ.get("EMAIL") and request.form["password-input"] == os.environ.get("PASSWORD"):
+    if request.form["email-input"] == os.environ.get("EMAIL") 
+      and request.form["password-input"] == os.environ.get("PASSWORD"):
       signed_in = True
       return redirect(url_for("index"))
     else:
@@ -89,9 +90,10 @@ def welcome(name):
 
   
 @app.route("/api/error/<name>")
+@app.route("/api/error/<name>")
 def error_name(name):
   # API to send an error message from name (passed in)
-  return f"<p>Sorry {name.toUpperCase()}, looks like that caused an error! Try again later</p>"
+  return f"<p>Sorry {name}, looks like that caused an error! Try again later</p>"
 
 # uses the user's name but also provides them with a redirect link to reacces website 
 @app.route("/api/error/<name>/<redir_link>/")
@@ -102,4 +104,4 @@ def error_name_redir(name, redir_link):
 
 
 if __name__ == "__main__":
-  app.run(debug=True)
+  app.run()
