@@ -26,10 +26,6 @@ products = {1: Product(name="Gear",
                      )
            }
 
-
-def format_url(url):
-  return url.replace("/", "$")
-
 @app.route("/")
 def index():
   global signed_in, products
@@ -39,8 +35,8 @@ def index():
     return redirect(url_for("login"))
   else:
     name = os.environ.get("NAME") # access env variable 
-    return render_template("home.html", name=name, products=products.values(), 
-                           message=requests.get(f"https://proximal-gorgeous-cheek.glitch.me/api/welcome/{name}").text)
+    # We pass variables into our templates, so we can use those variables there
+    return render_template("home.html", name=name, products=products.values(), message=requests.get(f"{request.root_url}/api/welcome/{name}").text)
 
 @app.route("/login", methods=['GET', 'POST'])
 def login():
@@ -52,8 +48,7 @@ def login():
     return render_template("login.html")
   
   elif request.method == 'POST':
-    if request.form["email-input"] == os.environ.get("EMAIL") 
-      and request.form["password-input"] == os.environ.get("PASSWORD"):
+    if request.form["email-input"] == os.environ.get("EMAIL") and request.form["password-input"] == os.environ.get("PASSWORD"):
       signed_in = True
       return redirect(url_for("index"))
     else:
@@ -65,15 +60,14 @@ def login():
 def product_page(id):
   global products, signed_in
   
-  if not signed_in:
+  if signed_in == False:
     return redirect(url_for("login"))
   
   if id in products:
     return render_template("product-page.html", product=products[id], products=products.values())
   
-  else :
-    index_url = "https://proximal-gorgeous-cheek.glitch.me/"
-    return redirect(f"/api/error/{os.environ.get('NAME')}/{format_url(index_url)}") 
+  else:
+    return redirect(f"/api/error/{os.environ.get('NAME')}/'{request.root_url.replace("/", "$")}'") 
   
 # API #
 
@@ -88,11 +82,10 @@ def welcome(name):
 
   
 @app.route("/api/error/<name>")
-@app.route("/api/error/<name>/<redir_link>")
+@app.route("/api/error/<name>/'<redir_link>'")
 def error_name(name, redir_link=None):
   # API to send an error message from name (passed in)
-  return f"<p>Sorry {name}, looks like that caused an error! Try again later</p>" 
-          + ("<a href= {redir_link.replace('$', '/')}> Take me back :( </a>" if redir_link != None else "")
+  return f"<p>Sorry {name}, looks like that caused an error! Try again later</p>" + (f"<a href='{redir_link.replace('$', '/')}'> Take me back :( </a>" if redir_link != None else "")
 
 
 if __name__ == "__main__":
