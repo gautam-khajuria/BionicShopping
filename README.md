@@ -1,13 +1,8 @@
 # Flask Productivity App
 
-## Starter Code:
+A simple demo project for Flask. Multiple Pages included, and Jinja!
 
-- Provided CSS
-- Template HTML files
-- They code everything else
-
-## Notes:
-
-- Form should prompt users for their name if they're creating an account
-  vs logging in
--
+.env:
+EMAIL=bionicshop@email.com
+PASSWORD=password1243
+NAME=Blu

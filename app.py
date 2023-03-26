@@ -77,11 +77,9 @@ def product_page(id):
   
 # API #
 
-
-@app.route("/api/welcome/")
-def welcomeOG():
-  # API to get default welcome message
-  return f"Hello! It's {calendar.day_name[date.today().weekday()]}. Start shopping for..."
+@app.route("/api/server-status")
+def server_status():
+  return "Server is working!"
 
 @app.route("/api/welcome/<name>")
 def welcome(name):
@@ -90,17 +88,11 @@ def welcome(name):
 
   
 @app.route("/api/error/<name>")
-@app.route("/api/error/<name>")
-def error_name(name):
+@app.route("/api/error/<name>/<redir_link>")
+def error_name(name, redir_link=None):
   # API to send an error message from name (passed in)
-  return f"<p>Sorry {name}, looks like that caused an error! Try again later</p>"
-
-# uses the user's name but also provides them with a redirect link to reacces website 
-@app.route("/api/error/<name>/<redir_link>/")
-def error_name_redir(name, redir_link):
-  # API to send an error message from name (passed in) + url (passed in)
-  return f"<p>Sorry {name}, looks like that caused an error!</p> <a href= {redir_link.replace('$', '/')}> Take me back :( </a>"
-   
+  return f"<p>Sorry {name}, looks like that caused an error! Try again later</p>" 
+          + ("<a href= {redir_link.replace('$', '/')}> Take me back :( </a>" if redir_link != None else "")
 
 
 if __name__ == "__main__":
