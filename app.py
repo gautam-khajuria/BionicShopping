@@ -78,9 +78,9 @@ def product_page(id):
 
 
 @app.route("/api/welcome/")
-def welcome2():
-  # API to get the welcome message from name (passed in)
-  return f"Hello, it's {calendar.day_name[date.today().weekday()]}. Start shopping for..."
+def welcomeOG():
+  # API to get default welcome message
+  return f"Hello! It's {calendar.day_name[date.today().weekday()]}. Start shopping for..."
 
 @app.route("/api/welcome/<name>")
 def welcome(name):
